@@ -7,9 +7,22 @@
   </head>
 
   <body>
+      <script>
+        function play(){
+            var playPromise = document.getElementById('audioElement').play();
+            
+              playPromise.then(function() {
+                // Automatic playback started!
+                  console.log("yay hoo");
+              }).catch(function(error) {
+                // Automatic playback failed.
+                // Show a UI element to let the user manually start playback.
+              });
+        }
+      </script>
     <audio crossorigin="anonymous" id="audioElement" src="https://www.dropbox.com/s/8cw93kls6b7byim/Des.mp3?dl=1"></audio>
     <div>
-      <button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
+      <button onclick="play();">Play the Audio</button>
       <button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
       <button onclick="document.getElementById('audioElement').volume+=0.0">Increase Volume</button>
       <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
